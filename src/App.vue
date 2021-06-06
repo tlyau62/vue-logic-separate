@@ -4,9 +4,26 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <BButton class="m-2" :file-id="10" @click="log"> test </BButton>
     <router-view />
   </div>
 </template>
+
+<script>
+import { BButton } from "bootstrap-vue";
+import { withCreateFile } from "./services/file.service";
+
+export default {
+  components: {
+    BButton: withCreateFile(BButton),
+  },
+  methods: {
+    log() {
+      console.log("test");
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
